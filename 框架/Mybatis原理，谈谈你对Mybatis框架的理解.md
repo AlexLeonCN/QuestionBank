@@ -11,3 +11,19 @@ Mybatis通过io流读取配置文件(Mybatis-Config.xml)和映射文件(XxxMappe
 而SqlSession对象中引用了Executor接口，Executor接口有多种实现：SimpleExecutor, CachingExecutor在SimpleExecutor的基础上扩展了缓存功能，BatchExecutor扩展了批量处理的功能。Executor会创建连接，并将连接，参数，MappedStatement交给StatementHandler接口，SetatementHandler接口也有多种实现，SimpleStatementHandler, CallebleStatementHandler, 以及PreparedStatementHandler预加载功能，可以防止Sql注入攻击。StatementHandler会基于MappedStatement创建Statement。再由ParameterHandler将语句中?位置填充参数；再由ResultSetHandler结果集处理器处理数据库端返回的结果。最终由TypeHandler处理数据库和Java之间的数据类型转换。
 
 ![mskt_26](https://alexleon.oss-cn-shanghai.aliyuncs.com/markdown-pic/%E9%9D%A2%E8%AF%95%E8%80%83%E9%A2%98/mskt_26.png)
+
+- 产品架构
+
+![Mybatis_01](https://alexleon.oss-cn-shanghai.aliyuncs.com/markdown-pic/Mybatis/Mybatis_01.png)
+
+Mybatis框架解决的功能性问题
+1. 会话功能 (SqlSession)
+2. 会话语言 (SQL,动态SQL)
+3. 会话协议 (TCP)
+4. 用户体验 (连接池,缓存,日志)
+
+<br/>
+
+- 应用架构
+
+![Mybatis_02](https://alexleon.oss-cn-shanghai.aliyuncs.com/markdown-pic/Mybatis/Mybatis_02.png)
