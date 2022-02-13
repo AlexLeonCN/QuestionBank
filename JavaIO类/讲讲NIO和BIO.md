@@ -1,0 +1,4 @@
+
+# 讲讲NIO和BIO
+- BIO就是同步阻塞式IO，当一个客户端向server端发起请求，必须等到Server端把这个请求处理完成，才能接收到server端的返回消息。同时，如果有其他请求发送到server端，server端是不会对新请求做出响应的，必须等到之前的请求处理完。这就是同步阻塞式。
+- NIO是同步非阻塞式IO，NIO面向Channel和Buffer，而不是传统的IO流。客户端发送的连接请求被作为一个channel注册到Selector上，Selector不断轮询各个channel的状态，只有在channel状态是可连接或者可读或者可写的时候，才会进行IO操作。因此NIO不用开启一个线程等待读或者写数据，而BIO则会一直等。
